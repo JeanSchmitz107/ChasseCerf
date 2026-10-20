@@ -23,30 +23,36 @@ class Program
 
         Console.WriteLine("Est-ce que vous avez réussis votre tir ?");
 
-        while ((tir_réussis != "Oui") || tir_réussis != "Non")
-        {
-            tir_réussis = "?";
-
-            Console.WriteLine("Est-ce que vous avez réussis votre tir ?   Oui/Non");
-
-            tir_réussis = Console.ReadLine();
-
-            if (tir_réussis == "Oui")
-            {
-                Nbr_tir_réussis++;
-            }
-            else if (tir_réussis == "Non")
-            {
-                Console.WriteLine("Dommage...");
-            }
-            else
-            {
-                Console.WriteLine("Je n'ai pas compris votre réponse.\n Veillez à bien répondre à la question !\n");
-            }
-
-        }
-        Nbr_flèches--;
-
         
+        while(Nbr_flèches > 0 && Nbr_tir_réussis < 3)
+        {
+            while (tir_réussis != "Oui" || tir_réussis != "Non")
+            {
+                tir_réussis = "?";
+
+                Console.WriteLine("Est-ce que vous avez réussis votre tir ?   Oui/Non");
+
+                tir_réussis = Console.ReadLine();
+
+                if (tir_réussis == "Oui")
+                {
+                    Console.WriteLine("Bien Jouer ^^");
+                    Nbr_tir_réussis++;
+                }
+                else if (tir_réussis == "Non")
+                {
+                    Console.WriteLine("Dommage...");
+                }
+                else
+                {
+                    Console.WriteLine("Je n'ai pas compris votre réponse.\n Veillez à bien répondre à la question !\n");
+                }
+
+            }
+            Nbr_flèches--;
+        }
+
+        Console.WriteLine("Fin de chasse!\nVous avez ");
+
     }
 }
