@@ -21,15 +21,13 @@ class Program
         int Nbr_flèches = 5, Nbr_tir_réussis = 0;
         string tir_réussis = "?";
 
-        Console.WriteLine("Est-ce que vous avez réussis votre tir ?");
-
 
         int Nbr_flèches_restant = Nbr_flèches;
         while (Nbr_flèches_restant > 0 && Nbr_tir_réussis < 3)
         {
-            while (tir_réussis != "Oui" || tir_réussis != "Non")
+            tir_réussis = "?";
+            while (tir_réussis == "Oui" || tir_réussis == "Non")
             {
-                tir_réussis = "?";
 
                 Console.WriteLine("Est-ce que vous avez réussis votre tir ?   Oui/Non");
 
@@ -48,7 +46,7 @@ class Program
                 {
                     Console.WriteLine("Je n'ai pas compris votre réponse.\n Veillez à bien répondre à la question !\n");
                 }
-
+                Console.WriteLine(Nbr_flèches_restant);
             }
             Nbr_flèches_restant--;
         }
@@ -57,6 +55,7 @@ class Program
         Console.WriteLine("----------------------");
         Console.WriteLine("|  Tir réussis  -->  " + Nbr_tir_réussis + " tir  |");
         Console.WriteLine("|  Tir rater    -->  " + (((Nbr_flèches_restant + Nbr_tir_réussis) - Nbr_flèches) * -1) + " tir  |");
+        Console.WriteLine("----------------------");
 
         if (Nbr_tir_réussis == 3)
         {
