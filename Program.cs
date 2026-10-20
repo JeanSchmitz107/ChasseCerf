@@ -23,8 +23,9 @@ class Program
 
         Console.WriteLine("Est-ce que vous avez réussis votre tir ?");
 
-        
-        while(Nbr_flèches > 0 && Nbr_tir_réussis < 3)
+
+        int Nbr_flèches_restant = Nbr_flèches;
+        while (Nbr_flèches_restant > 0 && Nbr_tir_réussis < 3)
         {
             while (tir_réussis != "Oui" || tir_réussis != "Non")
             {
@@ -49,9 +50,18 @@ class Program
                 }
 
             }
-            Nbr_flèches--;
+            Nbr_flèches_restant--;
         }
+        Console.WriteLine("Fin de chasse!");
 
+        Console.WriteLine("----------------------");
+        Console.WriteLine("|  Tir réussis  -->  " + Nbr_tir_réussis + " tir  |");
+        Console.WriteLine("|  Tir rater    -->  " + (((Nbr_flèches_restant + Nbr_tir_réussis) - Nbr_flèches) * -1) + " tir  |");
+
+        if (Nbr_tir_réussis == 3)
+        {
+            Console.WriteLine("Vous avez ");
+        }
         Console.WriteLine("Fin de chasse!\nVous avez ");
 
     }
