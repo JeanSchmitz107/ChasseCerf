@@ -18,7 +18,7 @@ class Program
         - Afficher le bilan final de la chasse.
         */
 
-        int Nbr_flèches = 5, Nbr_tir_réussis = 0;
+        int Nbr_flèches = 5, Nbr_tir_réussis = 0, Nbr_tir_raté = 0;
         string tir_réussis = "?";
 
 
@@ -26,7 +26,7 @@ class Program
         while (Nbr_flèches_restant > 0 && Nbr_tir_réussis < 3)
         {
             tir_réussis = "?";
-            while (tir_réussis != "Oui" || tir_réussis != "Non")
+            while (tir_réussis != "Oui" && tir_réussis != "Non")
             {
 
                 Console.WriteLine("Est-ce que vous avez réussis votre tir ?   Oui/Non");
@@ -41,27 +41,68 @@ class Program
                 else if (tir_réussis == "Non")
                 {
                     Console.WriteLine("Dommage...");
+                    Nbr_tir_raté++;
                 }
                 else
                 {
-                    Console.WriteLine("Je n'ai pas compris votre réponse.\n Veillez à bien répondre à la question !\n");
+                    Console.WriteLine("\nJe n'ai pas compris votre réponse.\nVeillez à bien répondre à la question !\n\n");
                 }
-                Console.WriteLine(Nbr_flèches_restant);
             }
+            Console.WriteLine("\n");
             Nbr_flèches_restant--;
         }
         Console.WriteLine("Fin de chasse!");
 
-        Console.WriteLine("----------------------");
+        Console.WriteLine("-----------------------------");
         Console.WriteLine("|  Tir réussis  -->  " + Nbr_tir_réussis + " tir  |");
-        Console.WriteLine("|  Tir rater    -->  " + (((Nbr_flèches_restant + Nbr_tir_réussis) - Nbr_flèches) * -1) + " tir  |");
-        Console.WriteLine("----------------------");
+        Console.WriteLine("|  Tir rater    -->  " + Nbr_tir_raté + " tir  |");
+        Console.WriteLine("-----------------------------");
 
-        if (Nbr_tir_réussis == 3)
+        //if (Nbr_tir_raté == 0)
+        //{
+        //    Console.WriteLine("Vous avez tirer parfaitement !!!");
+        //}
+        //else if (Nbr_tir_raté <= 2)
+        //{
+        //    Console.WriteLine("Super !");
+        //}
+        //else if (Nbr_tir_raté <= 4)
+        //{
+        //    Console.WriteLine("Il a des effort à faire mais vous ètes sur la bonne voie !\nCourage ^^");
+        //}
+        //else if (Nbr_tir_raté == 5)
+        //{
+        //    Console.WriteLine("Dommage !");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Il y a une erreur (x_x)");
+        //}
+
+
+        switch(Nbr_tir_raté)
         {
-            Console.WriteLine("Vous avez ");
-        }
-        Console.WriteLine("Fin de chasse!\nVous avez ");
+            case 0:
+                Console.WriteLine("Vous avez tirer parfaitement !!!");
+                break;
 
+            case 1:
+            case 2:
+                Console.WriteLine("Super !");
+                break;
+
+            case 3:
+            case 4:
+                Console.WriteLine("Il a des effort à faire mais vous ètes sur la bonne voie !\nCourage ^^");
+                break;
+
+            case 5:
+                Console.WriteLine("Dommage !");
+                break;
+
+            default :
+                Console.WriteLine("Il y a une erreur (x_x)");
+                break;
+        }
     }
 }
