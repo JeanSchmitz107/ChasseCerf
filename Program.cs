@@ -26,7 +26,7 @@ class Program
         while (Nbr_flèches_restant > 0 && Nbr_tir_réussis < 3)
         {
             tir_réussis = "?";
-            while (tir_réussis == "Oui" || tir_réussis == "Non")
+            while (tir_réussis != "Oui" || tir_réussis != "Non")
             {
 
                 Console.WriteLine("Est-ce que vous avez réussis votre tir ?   Oui/Non");
